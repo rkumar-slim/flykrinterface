@@ -1,5 +1,5 @@
 streamlit
 numpy
 requests
-json
+json5
 Pillow
