@@ -3,12 +3,12 @@ import numpy as np
 import streamlit as st
 import requests
 import json
-import tensorflow
 
 
 # Function to Read and Convert Images
 def load_image(img):
     im = Image.open(img)
+    im = im.resize((256, 256), Image.ANTIALIAS)
     image = np.array(im)
     return image
 
@@ -20,8 +20,6 @@ if uploadFile is not None:
     # Perform  Manipulations
     img = load_image(uploadFile)
     st.image(img)
-    img = np.array(tensorflow.image.resize(img, (128,128)))
-    # st.write(img)
     st.write(":camera_with_flash: Image Uploaded Successfully !")
     # Reshape the image
     X = img.reshape(img.shape[0] * img.shape[1] * img.shape[2])
