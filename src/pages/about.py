@@ -29,6 +29,9 @@ RK = """
 
 # pylint: disable=line-too-long
 def write():
+    st.markdown(
+        "<h1 style='text-align: centre; font-family: serif; font-size: 36px;color: black;font-weight: bold;'>Team FLYKR</h1",unsafe_allow_html=True)
+    st.write("##")
     col1, col2, col3, col4 = st.columns([2,2,2,2])
 
     with col1:
@@ -40,6 +43,7 @@ def write():
         #     unsafe_allow_html=True)
 
     with col2:
+
         image = Image.open('images/LI.jpeg')
         st.image(image, caption='', width=200, use_column_width=True)
         st.markdown(LA, unsafe_allow_html=True)
