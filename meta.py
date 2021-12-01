@@ -7,14 +7,14 @@ SIDEBAR_INFO = """
 <a class="contributor comma" href="https://www.linkedin.com/in/rajiv-kumar-63031a9/">Rajiv Kumar</a>
 </div>
 """
-CHEF_INFO = """
-<h2 class="font-title">Welcome to our lovely restaurant! </h2>
-<p class="strong font-body">
-<span class="d-block extra-info">(We are at your service with two of the best chefs in the world: Chef Scheherazade,
-Chef Giovanni. Scheherazade is known for being more creative whereas Giovanni is more meticulous.)</span>
-</p>
-""".strip()
-PROMPT_BOX = "Add custom ingredients here (separated by `,`): "
+# CHEF_INFO = """
+# <h2 class="font-title">Welcome to our lovely restaurant! </h2>
+# <p class="strong font-body">
+# <span class="d-block extra-info">(We are at your service with two of the best chefs in the world: Chef Scheherazade,
+# Chef Giovanni. Scheherazade is known for being more creative whereas Giovanni is more meticulous.)</span>
+# </p>
+# """.strip()
+# PROMPT_BOX = "Add custom ingredients here (separated by `,`): "
 STORY = """"""
 # STORY = """
 # <div class="story-box font-body">
