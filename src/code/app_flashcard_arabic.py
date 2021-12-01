@@ -96,7 +96,7 @@ def flashcard(model=[],label=[]):
             img = get_image()
 
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            st.image(img)
+            # st.image(img)
             print(img.shape)
             camera.release()
             cv2.destroyAllWindows()
@@ -136,7 +136,7 @@ def flashcard(model=[],label=[]):
                         tf.image.resize(
                             (cropped_image), [128, 128]) / 255).reshape(
                                 -1, 128, 128, 3))
-            st.image(imgage_resized)
+            st.image(cropped_image)
             prediction_max = np.argmax(prediction)
             pred = label[prediction_max]
 
