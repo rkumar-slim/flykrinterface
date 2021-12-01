@@ -68,19 +68,21 @@ HERE = Path(__file__).parent
 
 
 #deep learning sign detector model cached
-@st.cache(allow_output_mutation=True)
-def retrieve_model():
-    """ dummy tensorflow CNN model trained on few epochs on multiclassification task (american signs) """
-    PATH_MODEL = "saved_models/asl_model2.h5"
-    PATH_LABEL = "saved_models/asl_class_names2.npy"
+# @st.cache(allow_output_mutation=True)
+# def retrieve_model():
+#     """ dummy tensorflow CNN model trained on few epochs on multiclassification task (american signs) """
+#     PATH_MODEL = "saved_models/asl_model2.h5"
+#     PATH_LABEL = "saved_models/asl_class_names2.npy"
 
-    model = load_model(PATH_MODEL)
-    label = np.load(PATH_LABEL)
-    return model, label
+#     model = load_model(PATH_MODEL)
+#     label = np.load(PATH_LABEL)
+#     return model, label
 
+# model, label = retrieve_model()
 
 #Main intelligence of the file, class to launch a webcam, detect hands, then detect sign and output american letters
-def app_object_detection_asl():
+def app_object_detection_asl(model=[],label=[]):
+
     class SignPredictor(VideoProcessorBase):
 
         result_queue: "queue.Queue[List[Detection]]"
@@ -89,7 +91,9 @@ def app_object_detection_asl():
             # Hand detector
             self.hand_detector = HandDetector(detectionCon=0.5, maxHands=1)
             # Sign detector
-            self.model, self.label = retrieve_model()
+            self.model = model
+            self.label = label
+            # retrieve_model()
 
             #Queue to share information that happen within the live video thread outside the thread
             self.result_queue = queue.Queue()
@@ -130,13 +134,13 @@ def app_object_detection_asl():
                                           diff]
 
                 #load model
-                model, label = retrieve_model()
+                # model, label = retrieve_model()
 
                 # prediction
                 imgage_resized = np.array(
                     tf.image.resize((cropped_image), [128, 128]) / 255)
 
-                prediction = model.predict(
+                prediction = self.model.predict(
                     np.array(
                         tf.image.resize(
                             (cropped_image), [128, 128]) / 255).reshape(
@@ -144,7 +148,7 @@ def app_object_detection_asl():
 
                 prediction_max = np.argmax(prediction)
 
-                pred = label[prediction_max]
+                pred = self.label[prediction_max]
                 #check on terminal the prediction
                 print(pred)
                 #store prediction on the queue to use them outside of the live thread
