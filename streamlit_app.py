@@ -25,12 +25,12 @@ import src.pages.resources
 import src.pages.vision
 import src.pages.tryme
 
-st.set_page_config(
-    page_title="SignSight",  # => Quick reference - Streamlit
-    page_icon=
-    "https://emoji.slack-edge.com/T02NE0241/signsigh/7fc5f78d22bb9eb4.png",
-    layout="wide",  # wide
-    initial_sidebar_state="expanded")  # collapsed
+# st.set_page_config(
+#     page_title="SignSight",  # => Quick reference - Streamlit
+#     page_icon=
+#     "https://emoji.slack-edge.com/T02NE0241/signsigh/7fc5f78d22bb9eb4.png",
+#     layout="wide",  # wide
+#     initial_sidebar_state="expanded")  # collapsed
 
 PAGES = {
     "Home": src.pages.home,

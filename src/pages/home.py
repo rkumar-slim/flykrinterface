@@ -37,7 +37,14 @@ def write():
         st.markdown(
             "<h4 style='text-align: center; color: black;'>Making sign language interpretable worldwide 🌎</h14",
             unsafe_allow_html=True)
-        # st.markdown(meta.SIDEBAR_INFO, unsafe_allow_html=True)
+        st.write("##")
+        st.markdown(
+            """SignSight’s mission is to make the communication, translation, and
+learning of any Sign-language just as seamless and easy as any
+spoken languages. SignSight is driven by the core principle of
+democratising communication, and our goal is to make every Sign-
+language accessible to every age group in a fun, stimulating
+manner.""")
 
 
     with col3:

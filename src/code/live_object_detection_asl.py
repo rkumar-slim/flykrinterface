@@ -71,8 +71,8 @@ HERE = Path(__file__).parent
 @st.cache(allow_output_mutation=True)
 def retrieve_model():
     """ dummy tensorflow CNN model trained on few epochs on multiclassification task (american signs) """
-    PATH_MODEL = "saved_models/asl_model.h5"
-    PATH_LABEL = "saved_models/asl_class_names.npy"
+    PATH_MODEL = "saved_models/asl_model2.h5"
+    PATH_LABEL = "saved_models/asl_class_names2.npy"
 
     model = load_model(PATH_MODEL)
     label = np.load(PATH_LABEL)
