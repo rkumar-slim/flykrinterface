@@ -49,8 +49,8 @@ def write(mas=model_asl,
                            options=[
                                "Live demo with American sign",
                                "Live demo with Arabic sign",
-                               "Knowledge Test ASL w/ Flashcards",
-                               "Knowledge Test ARABIC w/ Flashcards"
+                               "Live Knowledge Test ASL w/ Flashcards",
+                               "Live Knowledge Test ARABIC w/ Flashcards"
                            ])
 
     if options=="Live demo with American sign":
@@ -66,7 +66,7 @@ def write(mas=model_asl,
             unsafe_allow_html=True)
         st.write("##")
         lod_arabic.app_object_detection_arabic(model=marab, label=larab)
-    elif options=="Knowledge Test ASL w/ Flashcards":
+    elif options=="Live Knowledge Test ASL w/ Flashcards":
         st.markdown(
             "<h4 style='text-align: center; color: black;'>Upload an image to test your knowledge about sign language</h4",
             unsafe_allow_html=True)
@@ -74,7 +74,7 @@ def write(mas=model_asl,
         fcard_asl.flashcard(model=mas, label=lasl)
         # # lod_arabic.app_object_detection_arabic()
         # flash_card = fcard.GameState()
-    elif options=="Knowledge Test ARABIC w/ Flashcards":
+    elif options=="Live Knowledge Test ARABIC w/ Flashcards":
         st.markdown(
             "<h4 style='text-align: center; color: black;'>Upload an image to test your knowledge about sign language</h4",
             unsafe_allow_html=True)
