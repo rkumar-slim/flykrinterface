@@ -1,3 +1,13 @@
+import streamlit as st
+
+st.set_page_config(
+    page_title="SignSight",  # => Quick reference - Streamlit
+    page_icon=
+    "https://emoji.slack-edge.com/T02NE0241/signsigh/7fc5f78d22bb9eb4.png",
+    layout="wide",  # wide
+    initial_sidebar_state="expanded")  # collapsed
+
+
 from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
@@ -5,7 +15,6 @@ import queue
 import random
 import meta
 #Import for streamlit
-import streamlit as st
 import av
 from streamlit_webrtc import (
     RTCConfiguration,
@@ -24,13 +33,6 @@ import src.pages.home
 import src.pages.resources
 import src.pages.vision
 import src.pages.tryme
-
-st.set_page_config(
-    page_title="SignSight",  # => Quick reference - Streamlit
-    page_icon=
-    "https://emoji.slack-edge.com/T02NE0241/signsigh/7fc5f78d22bb9eb4.png",
-    layout="wide",  # wide
-    initial_sidebar_state="expanded")  # collapsed
 
 PAGES = {
     "Home": src.pages.home,

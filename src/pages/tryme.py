@@ -1,7 +1,8 @@
 import streamlit as st
 import src.code.live_object_detection_asl as lod_asl
 import src.code.live_object_detection_arabic as lod_arabic
-import src.code.app_flashcard as fcard
+import src.code.app_flashcard_asl as fcard_asl
+import src.code.app_flashcard_arabic as fcard_arabic
 # pylint: disable=line-too-long
 #Import for Deep learning model
 import tensorflow as tf
@@ -70,7 +71,7 @@ def write(mas=model_asl,
             "<h4 style='text-align: center; color: black;'>Upload an image to test your knowledge about sign language</h4",
             unsafe_allow_html=True)
         st.write("##")
-        fcard.flashcard()
+        fcard_asl.flashcard(model=mas, label=lasl)
         # # lod_arabic.app_object_detection_arabic()
         # flash_card = fcard.GameState()
     elif options=="Knowledge Test ARABIC w/ Flashcards":
@@ -78,4 +79,4 @@ def write(mas=model_asl,
             "<h4 style='text-align: center; color: black;'>Upload an image to test your knowledge about sign language</h4",
             unsafe_allow_html=True)
         st.write("##")
-        fcard.flashcard()
+        fcard_arabic.flashcard(model=marab, label=larab)

@@ -137,8 +137,8 @@ def app_object_detection_asl(model=[],label=[]):
                 # model, label = retrieve_model()
 
                 # prediction
-                imgage_resized = np.array(
-                    tf.image.resize((cropped_image), [128, 128]) / 255)
+                # imgage_resized = np.array(
+                #     tf.image.resize((cropped_image), [128, 128]) / 255)
 
                 prediction = self.model.predict(
                     np.array(

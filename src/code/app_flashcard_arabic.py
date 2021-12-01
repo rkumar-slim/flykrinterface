@@ -9,6 +9,8 @@ import dataclasses
 import cv2
 from cvzone.HandTrackingModule import HandDetector
 import tensorflow
+import tensorflow as tf
+from tensorflow.python import tf2
 
 HI = 1000
 
@@ -57,7 +59,7 @@ if "emoji" not in st.session_state:
 emojis = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻"]
 
 
-def flashcard():
+def flashcard(model=[],label=[]):
     GS = GameState(random.randint(1, len(all_signs) - 1))
     state = persistent_game_state(initial_state=GS)
 
@@ -126,37 +128,41 @@ def flashcard():
                                     max(0, x - 20 - diff):x + w + 20 + diff]
 
             imgage_resized = np.array(
-                tensorflow.image.resize((cropped_image), [128, 128]) / 255)
+                tf.image.resize((cropped_image), [128, 128]) / 255)
 
-
+            prediction = model.predict(
+                    np.array(
+                        tf.image.resize(
+                            (cropped_image), [128, 128]) / 255).reshape(
+                                -1, 128, 128, 3))
             st.image(imgage_resized)
+            prediction_max = np.argmax(prediction)
+            pred = label[prediction_max]
 
 
+            # X = imgage_resized.reshape(imgage_resized.shape[0] *
+            #                            imgage_resized.shape[1] *
+            #                            imgage_resized.shape[2])
+            # X = X.tolist()
+            # X_json = json.dumps(X)
+            # # Call the POST
+            # url = "https://sign-lang-im-n7noas4ljq-ew.a.run.app/predict"
+            # data = json.dumps({
+            #     "image_reshape": X_json,
+            #     "height": imgage_resized.shape[0],
+            #     "width": imgage_resized.shape[1],
+            #     "color": imgage_resized.shape[2]
+            # })
+            # headers = {'Content-type': 'application/json'}
 
-
-            X = imgage_resized.reshape(imgage_resized.shape[0] *
-                                       imgage_resized.shape[1] *
-                                       imgage_resized.shape[2])
-            X = X.tolist()
-            X_json = json.dumps(X)
-            # Call the POST
-            url = "https://sign-lang-im-n7noas4ljq-ew.a.run.app/predict"
-            data = json.dumps({
-                "image_reshape": X_json,
-                "height": imgage_resized.shape[0],
-                "width": imgage_resized.shape[1],
-                "color": imgage_resized.shape[2]
-            })
-            headers = {'Content-type': 'application/json'}
-
-            response = requests.post(url, data, headers=headers)
-            response = response.json()
+            # response = requests.post(url, data, headers=headers)
+            # response = response.json()
             # e.g bruschetta
-            if response['response'] == letter_to_guess.lower():
+            if pred == letter_to_guess.lower():
                 st.write(
                     f"Well, that was a super duper guess, this is indeed the right sign for {letter_to_guess.upper()} :) So smart. 🎉🎉🎉"
                 )
             else:
                 st.write(
-                    f"Good try, but actually, this is more like a {response['response']}. But practice makes perfect 😏!"
+                    f"Good try, but actually, this is more like a {pred}. But practice makes perfect 😏!"
                 )
