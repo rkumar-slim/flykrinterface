@@ -3,8 +3,6 @@ import streamlit as st
 from PIL import Image
 import meta
 
-
-
 # pylint: disable=line-too-long
 def write():
     #     """Used to write the page in the app.py file"""
@@ -34,18 +32,12 @@ def write():
     with col2:
         image = Image.open('images/SignSight logo.png')
         st.image(image, caption='', width=600, use_column_width=None)
-        st.markdown(
-            "<h4 style='text-align: center; color: black;'>Making sign language interpretable worldwide 🌎</h14",
+        st.markdown("<h4 style='text-align: center; color: black;'>Making sign language interpretable worldwide 🌎</h14",
             unsafe_allow_html=True)
         st.write("##")
         st.markdown(
-            """SignSight’s mission is to make the communication, translation, and
-learning of any Sign-language just as seamless and easy as any
-spoken languages. SignSight is driven by the core principle of
-democratising communication, and our goal is to make every Sign-
-language accessible to every age group in a fun, stimulating
-manner.""")
-
+            "<h4 style='text-align: justify; font-family: serif; font-size: 20px;color: black;font-weight: normal;'>SignSight’s mission is to make the communication, translation, and learning of any sign-language just as seamless and easy as any spoken languages. SignSight is driven by the core principle of democratising communication, and our goal is to make every sign-language accessible to every age group in a fun, stimulating manner.</h4",
+            unsafe_allow_html=True)
 
     with col3:
         st.write("")
