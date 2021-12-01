@@ -30,7 +30,7 @@ RK = """
 # pylint: disable=line-too-long
 def write():
     st.markdown(
-        "<h1 style='text-align: centre; font-family: serif; font-size: 36px;color: black;font-weight: bold;'>Team FLYKR</h1",unsafe_allow_html=True)
+        "<h1 style='text-align: centre; font-family: serif; font-size: 36px;color: black;font-weight: bold;'>Team FLyKR</h1",unsafe_allow_html=True)
     st.write("##")
     col1, col2, col3, col4 = st.columns([2,2,2,2])
 
