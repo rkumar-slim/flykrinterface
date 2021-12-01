@@ -101,18 +101,22 @@ def app_object_detection_asl():
             for hand in hands:
                 # this is just an array of len 4, containing info about the bounding box
                 bbox = hand["bbox"]
+                x, y, w, h = bbox
 
                 # .rectangle needs the image, the top right, bottom left points of the rectangle,
                 # and color of the rectangle and line thickness
                 if bbox[2] > bbox[3]:
-                    w = bbox[2]
-                    h = bbox[2]
+                    h = w
                     diff = int((bbox[2] - bbox[3]) / 2)
 
                     rectangle = cv2.rectangle(
                         image, (bbox[0] - 20, bbox[1] - 20 - diff),
                         (bbox[0] + bbox[2] + 20,
                          bbox[1] + bbox[3] + 20 + diff), (0, 0, 0), 2)
+
+                    cropped_image = image[max(0, y - 20 - diff):y + h + 20 +
+                                          diff,
+                                          max(0, x - 20):x + w + 20]
 
                 else:
                     diff = int((bbox[3] - bbox[2]) / 2)
@@ -121,17 +125,22 @@ def app_object_detection_asl():
                         (bbox[0] + bbox[2] + 20 + diff,
                          bbox[1] + bbox[3] + 20), (0, 0, 0), 2)
 
+                    cropped_image = image[max(0, y - 20):y + h + 20,
+                                          max(0, x - 20 - diff):x + w + 20 +
+                                          diff]
+
                 #load model
                 model, label = retrieve_model()
 
                 # prediction
                 imgage_resized = np.array(
-                    tf.image.resize((rectangle), [128, 128]) / 255)
+                    tf.image.resize((cropped_image), [128, 128]) / 255)
 
                 prediction = model.predict(
-                    np.array(tf.image.resize(
-                        (rectangle), [128, 128]) / 255).reshape(
-                            -1, 128, 128, 3))
+                    np.array(
+                        tf.image.resize(
+                            (cropped_image), [128, 128]) / 255).reshape(
+                                -1, 128, 128, 3))
 
                 prediction_max = np.argmax(prediction)
 
