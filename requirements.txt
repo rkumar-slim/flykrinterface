@@ -3,3 +3,15 @@ numpy
 requests
 json5
 Pillow
+
+#for Deep learning model
+tensorflow
+
+#for handling image
+opencv-python-headless
+opencv-contrib-python-headless
+mediapipe
+cvzone
+
+#other
+matplotlib
