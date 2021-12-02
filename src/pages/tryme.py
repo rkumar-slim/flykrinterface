@@ -26,9 +26,9 @@ def retrieve_model(PATH_MODEL, PATH_LABEL):
     # PATH_MODEL = "saved_models/asl_model2.h5"
     # PATH_LABEL = "saved_models/asl_class_names2.npy"
 
-    model = load_model(PATH_MODEL)
     with open(PATH_LABEL, "rb") as fp:
         label = pickle.load(fp)
+    model = load_model(PATH_MODEL)
     # label = np.load(PATH_LABEL, allow_pickle=True)
     return model, label
 
