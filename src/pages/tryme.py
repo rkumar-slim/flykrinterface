@@ -3,6 +3,8 @@ import src.code.live_object_detection_asl as lod_asl
 import src.code.live_object_detection_arabic as lod_arabic
 import src.code.app_flashcard_asl as fcard_asl
 import src.code.app_flashcard_arabic as fcard_arabic
+import src.code.app_flashcard_asl_fileupload as fcard_asl_upload
+import src.code.app_flashcard_arabic_fileupload as fcard_arabic_upload
 # pylint: disable=line-too-long
 #Import for Deep learning model
 import tensorflow as tf
@@ -50,7 +52,9 @@ def write(mas=model_asl,
                                "Live demo with American sign",
                                "Live demo with Arabic sign",
                                "Live Knowledge Test ASL w/ Flashcards",
-                               "Live Knowledge Test ARABIC w/ Flashcards"
+                               "Live Knowledge Test ARABIC w/ Flashcards",
+                               "File upload Knowledge Test ASL w/ Flashcards",
+                               "File upload Knowledge Test ARABIC w/ Flashcards"
                            ])
 
     if options=="Live demo with American sign":
@@ -80,3 +84,16 @@ def write(mas=model_asl,
             unsafe_allow_html=True)
         st.write("##")
         fcard_arabic.flashcard(model=marab, label=larab)
+
+    elif options == "File upload Knowledge Test ASL w/ Flashcards":
+        st.markdown(
+            "<h4 style='text-align: center; color: black;'>Upload an image to test your knowledge about sign language</h4",
+            unsafe_allow_html=True)
+        st.write("##")
+        fcard_asl_upload.flashcard(model=mas, label=lasl)
+    elif options == "File upload Knowledge Test ARABIC w/ Flashcards":
+        st.markdown(
+            "<h4 style='text-align: center; color: black;'>Upload an image to test your knowledge about sign language</h4",
+            unsafe_allow_html=True)
+        st.write("##")
+        fcard_arabic_upload.flashcard(model=marab, label=larab)
