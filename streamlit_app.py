@@ -49,7 +49,12 @@ selection = st.sidebar.radio("Go to", list(PAGES.keys()))
 page = PAGES[selection]
 
 with st.spinner(f"Loading {selection} ..."):
+    if selection=="TryMe":
+        model = load_model("saved_models/asl_model2.h5")
+        page.write(model)
+
     page.write()
+
 
 #Import for handling image
 import cv2

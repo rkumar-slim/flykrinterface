@@ -45,11 +45,11 @@ model_arabic, label_arabic = retrieve_model(PATH_MODEL_ARABIC,
                                             PATH_LABEL_ARABIC)
 
 
-def write(mas=model_asl,
+def write(mas,
           lasl=label_asl,
           marab=model_arabic,
           larab=label_arabic):
-
+    st.write(mas.summary())
     options = st.selectbox("Choose what you want to test today",
                            index=0,
                            options=[
