@@ -49,8 +49,8 @@ selection = st.sidebar.radio("Go to", list(PAGES.keys()))
 page = PAGES[selection]
 
 with st.spinner(f"Loading {selection} ..."):
-    if selection=="TryMe":
-        page.write()
+    # if selection=="TryMe":
+    #     page.write()
 
     #     model = load_model("./saved_models/asl_model2.h5")
     #     page.write(model)
