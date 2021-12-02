@@ -27,7 +27,7 @@ def load_image(img):
     return image
 
 
-all_signs = np.load("saved_labels/class_name_arabic.npy")
+all_signs = np.load("saved_labels/class_name_arabic.npy", allow_pickle=True)
 
 letter_to_guess = all_signs[random.randint(0, len(all_signs) - 1)]
 

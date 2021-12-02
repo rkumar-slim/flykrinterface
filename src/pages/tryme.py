@@ -26,7 +26,7 @@ def retrieve_model(PATH_MODEL, PATH_LABEL):
     # PATH_LABEL = "saved_models/asl_class_names2.npy"
 
     model = load_model(PATH_MODEL)
-    label = np.load(PATH_LABEL)
+    label = np.load(PATH_LABEL, allow_pickle=True)
     return model, label
 
 PATH_MODEL_ASL = "saved_models/asl_model2.h5"
