@@ -27,7 +27,7 @@ from PIL import Image
 #Import for Deep learning model
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-
+import os
 import src.pages.about
 import src.pages.home
 import src.pages.resources
@@ -50,7 +50,8 @@ page = PAGES[selection]
 
 with st.spinner(f"Loading {selection} ..."):
     if selection=="TryMe":
-        model = load_model("saved_models/asl_model2.h5")
+        print(os.getcwd())
+        model = load_model("./saved_models/asl_model2.h5")
         page.write(model)
 
     page.write()
