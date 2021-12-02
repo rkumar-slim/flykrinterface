@@ -23,6 +23,7 @@ ASL = """
 #deep learning sign detector model cached
 @st.cache(allow_output_mutation=True)
 def retrieve_model(PATH_MODEL, PATH_LABEL):
+    st.write(os.path.exists(PATH_MODEL))
     """ dummy tensorflow CNN model trained on few epochs on multiclassification task (american signs) """
     # PATH_MODEL = "saved_models/asl_model2.h5"
     # PATH_LABEL = "saved_models/asl_class_names2.npy"
@@ -35,7 +36,7 @@ def retrieve_model(PATH_MODEL, PATH_LABEL):
 
 # st.write(os.path.join(os.getcwd(), "saved_models", "asl_model2.h5"))
 # st.write(os.path.join(os.getcwd(),"saved_model"))
-# st.write(os.path.exists(os.path.join(os.getcwd(),"saved_models","asl_model2.h5")))
+st.write(os.path.exists(os.path.join(os.getcwd(),"saved_models","asl_model2.h5")))
 # # # print(os.getcwd())
 # PATH_MODEL_ASL = os.getcwd() + "/saved_model/asl_model2.h5"
 # PATH_LABEL_ASL = os.getcwd() + "/saved_labels/asl_class_names2.txt"
