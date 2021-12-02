@@ -33,9 +33,9 @@ def retrieve_model(PATH_MODEL, PATH_LABEL):
     return model, label
 
 
-st.write(os.path.join(os.getcwd(), "saved_models", "asl_model2.h5"))
+# st.write(os.path.join(os.getcwd(), "saved_models", "asl_model2.h5"))
 # st.write(os.path.join(os.getcwd(),"saved_model"))
-st.write(os.path.exists(os.path.join(os.getcwd(),"saved_models","asl_model2.h5")))
+# st.write(os.path.exists(os.path.join(os.getcwd(),"saved_models","asl_model2.h5")))
 # # # print(os.getcwd())
 # PATH_MODEL_ASL = os.getcwd() + "/saved_model/asl_model2.h5"
 # PATH_LABEL_ASL = os.getcwd() + "/saved_labels/asl_class_names2.txt"
