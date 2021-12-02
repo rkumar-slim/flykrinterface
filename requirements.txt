@@ -5,7 +5,9 @@ json5
 Pillow
 pickle5
 #for Deep learning model
-tensorflow
+# tensorflow
+tensorflow==2.5.1
+tensorflow-estimator==2.5.0
 # os-sys
 
 #for handling image
