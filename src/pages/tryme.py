@@ -51,10 +51,6 @@ def write(mas=model_asl,
               lasl=label_asl,
               marab=model_arabic,
               larab=label_arabic):
-    # st.write(PATH_MODEL_ASL)
-    # model = load_model(PATH_MODEL_ASL)
-    # st.write(model.summary())
-    # print(mas.summary())
     options = st.selectbox("Choose what you want to test today",
                            index=0,
                            options=[
