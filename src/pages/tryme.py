@@ -33,7 +33,7 @@ def retrieve_model(PATH_MODEL, PATH_LABEL):
     # label = np.load(PATH_LABEL, allow_pickle=True)
     return model, label
 
-st.write(os.getcwd())
+st.write(os.getcwd()+"/saved_model/asl_model2.h5")
 # # print(os.getcwd())
 PATH_MODEL_ASL = "saved_models/asl_model2.h5"
 PATH_LABEL_ASL = "saved_labels/asl_class_names2.txt"
