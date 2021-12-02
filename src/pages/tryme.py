@@ -11,7 +11,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 import numpy as np
 import pickle
-
+import os
 ASL = """
 <div style="text-align: center" class="contributors font-body text-bold">
 <a class="contributor comma" href="https://www.linkedin.com/in/franciska-e-94592115a/"><h4 style='text-align: center; color: black;'>Franciska Englert</h4</a>
@@ -32,7 +32,7 @@ def retrieve_model(PATH_MODEL, PATH_LABEL):
     # label = np.load(PATH_LABEL, allow_pickle=True)
     return model, label
 
-
+print(os.getcwd())
 PATH_MODEL_ASL = "flykrinterface/saved_models/asl_model2.h5"
 PATH_LABEL_ASL = "flykrinterface/saved_labels/asl_class_names2.txt"
 
