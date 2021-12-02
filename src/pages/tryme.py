@@ -10,6 +10,7 @@ import src.code.app_flashcard_arabic_fileupload as fcard_arabic_upload
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 import numpy as np
+import pickle
 
 ASL = """
 <div style="text-align: center" class="contributors font-body text-bold">
@@ -26,16 +27,18 @@ def retrieve_model(PATH_MODEL, PATH_LABEL):
     # PATH_LABEL = "saved_models/asl_class_names2.npy"
 
     model = load_model(PATH_MODEL)
-    label = np.load(PATH_LABEL, allow_pickle=True)
+    with open(PATH_LABEL, "rb") as fp:
+        label = pickle.load(fp)
+    # label = np.load(PATH_LABEL, allow_pickle=True)
     return model, label
 
 PATH_MODEL_ASL = "saved_models/asl_model2.h5"
-PATH_LABEL_ASL = "saved_labels/asl_class_names2.npy"
+PATH_LABEL_ASL = "saved_labels/asl_class_names2.txt"
 
 model_asl, label_asl = retrieve_model(PATH_MODEL_ASL, PATH_LABEL_ASL)
 
 PATH_MODEL_ARABIC = "saved_models/arabic_model.h5"
-PATH_LABEL_ARABIC = "saved_labels/class_name_arabic.npy"
+PATH_LABEL_ARABIC = "saved_labels/class_name_arabic.txt"
 
 model_arabic, label_arabic = retrieve_model(PATH_MODEL_ARABIC,
                                             PATH_LABEL_ARABIC)

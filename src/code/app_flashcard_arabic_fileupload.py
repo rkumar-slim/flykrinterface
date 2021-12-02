@@ -4,7 +4,7 @@ import streamlit as st
 import random
 from typing import TypeVar
 import dataclasses
-
+import pickle
 HI = 1000
 
 StateT = TypeVar('StateT')
@@ -27,7 +27,10 @@ def load_image(img):
     return image
 
 
-all_signs = np.load("saved_labels/class_name_arabic.npy", allow_pickle=True)
+with open("saved_labels/class_name_arabic.txt", "rb") as fp:
+    all_signs = pickle.load(fp)
+
+# all_signs = np.load("saved_labels/class_name_arabic.npy", allow_pickle=True)
 
 letter_to_guess = all_signs[random.randint(0, len(all_signs) - 1)]
 

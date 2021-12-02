@@ -3,7 +3,7 @@ numpy
 requests
 json5
 Pillow
-
+pickle
 #for Deep learning model
 tensorflow
 

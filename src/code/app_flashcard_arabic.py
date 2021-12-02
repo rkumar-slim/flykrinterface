@@ -11,6 +11,7 @@ from cvzone.HandTrackingModule import HandDetector
 import tensorflow
 import tensorflow as tf
 from tensorflow.python import tf2
+import pickle
 
 HI = 1000
 
@@ -34,7 +35,9 @@ def load_image(img):
     return image
 
 
-all_signs = np.load("saved_labels/class_name_arabic.npy", allow_pickle=True)
+with open("saved_labels/class_name_arabic.txt", "rb") as fp:
+    all_signs = pickle.load(fp)
+# all_signs = np.load("saved_labels/class_name_arabic.npy", allow_pickle=True)
 # all_signs = ["a", "b", "c", "d", 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 #              'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
 #              '1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
