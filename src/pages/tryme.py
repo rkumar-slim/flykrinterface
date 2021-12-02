@@ -30,12 +30,12 @@ def retrieve_model(PATH_MODEL, PATH_LABEL):
     return model, label
 
 PATH_MODEL_ASL = "saved_models/asl_model2.h5"
-PATH_LABEL_ASL = "saved_models/asl_class_names2.npy"
+PATH_LABEL_ASL = "saved_labels/asl_class_names2.npy"
 
 model_asl, label_asl = retrieve_model(PATH_MODEL_ASL, PATH_LABEL_ASL)
 
 PATH_MODEL_ARABIC = "saved_models/arabic_model.h5"
-PATH_LABEL_ARABIC = "saved_models/class_name_arabic.npy"
+PATH_LABEL_ARABIC = "saved_labels/class_name_arabic.npy"
 
 model_arabic, label_arabic = retrieve_model(PATH_MODEL_ARABIC,
                                             PATH_LABEL_ARABIC)
