@@ -51,7 +51,8 @@ page = PAGES[selection]
 current_path = os.getcwd()
 PATH_MODEL_ASL = os.path.join(current_path, "saved_models/my_saved_model_asl/saved_model.pb")
 
-model = tf.keras.models.load_model("saved_models/asl_model2.h5")
+model = tf.keras.models.load_model(os.path.join("./saved_models/","asl_model2.h5"))
+                                #    "saved_models/asl_model2.h5")
 with st.spinner(f"Loading {selection} ..."):
     # if selection=="TryMe":
     #     current_path = os.getcwd()
