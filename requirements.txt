@@ -5,7 +5,7 @@ json5
 Pillow
 pickle5
 #for Deep learning model
-tensorflow=2.5.1
+tensorflow==2.5.1
 
 #for handling image
 opencv-python-headless
