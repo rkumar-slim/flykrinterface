@@ -13,5 +13,6 @@ opencv-contrib-python-headless
 mediapipe
 cvzone
 av
+streamlit_webrtc
 #other
 matplotlib
