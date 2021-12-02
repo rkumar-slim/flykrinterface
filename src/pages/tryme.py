@@ -34,7 +34,7 @@ def retrieve_model(PATH_MODEL, PATH_LABEL):
     return model, label
 
 current_path = os.getcwd()
-PATH_MODEL_ASL = os.path.join(current_path, "saved_models/asl_model2.h5")
+PATH_MODEL_ASL = os.path.join(current_path, "saved_models/my_saved_model_asl")
 
 # # print(os.getcwd())
 # PATH_MODEL_ASL = "./saved_models/asl_model2.h5"
