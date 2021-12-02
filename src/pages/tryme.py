@@ -26,24 +26,32 @@ def retrieve_model(PATH_MODEL, PATH_LABEL):
     """ dummy tensorflow CNN model trained on few epochs on multiclassification task (american signs) """
     # PATH_MODEL = "saved_models/asl_model2.h5"
     # PATH_LABEL = "saved_models/asl_class_names2.npy"
-
     with open(PATH_LABEL, "rb") as fp:
         label = pickle.load(fp)
     model = load_model(PATH_MODEL)
     # label = np.load(PATH_LABEL, allow_pickle=True)
     return model, label
 
-st.write(os.getcwd()+"/saved_model/asl_model2.h5")
-# # print(os.getcwd())
-PATH_MODEL_ASL = os.getcwd() + "/saved_model/asl_model2.h5"
-PATH_LABEL_ASL = os.getcwd() + "saved_labels/asl_class_names2.txt"
+
+st.write(os.path.join(os.getcwd(), "saved_models", "asl_model2.h5"))
+# st.write(os.path.join(os.getcwd(),"saved_model"))
+st.write(os.path.exists(os.path.join(os.getcwd(),"saved_models","asl_model2.h5")))
+# # # print(os.getcwd())
+# PATH_MODEL_ASL = os.getcwd() + "/saved_model/asl_model2.h5"
+# PATH_LABEL_ASL = os.getcwd() + "/saved_labels/asl_class_names2.txt"
+
+# model_asl, label_asl = retrieve_model(PATH_MODEL_ASL, PATH_LABEL_ASL)
+
+# PATH_MODEL_ARABIC = os.getcwd() + "/saved_models/arabic_model.h5"
+# PATH_LABEL_ARABIC = os.getcwd() + "/saved_labels/class_name_arabic.txt"
+PATH_MODEL_ASL = "saved_models/asl_model2.h5"
+PATH_LABEL_ASL = "saved_labels/asl_class_names2.txt"
 
 model_asl, label_asl = retrieve_model(PATH_MODEL_ASL, PATH_LABEL_ASL)
 
-PATH_MODEL_ARABIC = os.getcwd() + "saved_models/arabic_model.h5"
-PATH_LABEL_ARABIC = os.getcwd() + "saved_labels/class_name_arabic.txt"
+PATH_MODEL_ARABIC = "saved_models/arabic_model.h5"
+PATH_LABEL_ARABIC = "saved_labels/class_name_arabic.txt"
 
-st.write(os.path.exists(os.getcwd() + "/saved_model/asl_model2.h5"))
 
 model_arabic, label_arabic = retrieve_model(PATH_MODEL_ARABIC,
                                             PATH_LABEL_ARABIC)
