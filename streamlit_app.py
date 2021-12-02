@@ -50,10 +50,11 @@ page = PAGES[selection]
 
 with st.spinner(f"Loading {selection} ..."):
     if selection=="TryMe":
-        print(os.getcwd())
-        model = load_model("./saved_models/asl_model2.h5")
-        page.write(model)
+        page.write()
 
+    #     model = load_model("./saved_models/asl_model2.h5")
+    #     page.write(model)
+    # print(os.getcwd())
     page.write()
 
 
