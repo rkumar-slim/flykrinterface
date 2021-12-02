@@ -5,7 +5,7 @@ st.set_page_config(
     page_icon=
     "https://emoji.slack-edge.com/T02NE0241/signsigh/7fc5f78d22bb9eb4.png",
     layout="wide",  # wide
-    initial_sidebar_state="expanded")  # collapsed
+    initial_sidebar_state="auto")  # collapsed
 
 
 from pathlib import Path

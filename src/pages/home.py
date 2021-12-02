@@ -31,7 +31,7 @@ def write():
 
     with col2:
         image = Image.open('images/SignSight logo.png')
-        st.image(image, caption='', width=600, use_column_width=None)
+        st.image(image, caption='', width=600, use_column_width='auto')
         st.markdown("<h4 style='text-align: center; color: black;'>Making sign language interpretable worldwide 🌎</h14",
             unsafe_allow_html=True)
         st.write("##")
