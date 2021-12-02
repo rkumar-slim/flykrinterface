@@ -33,8 +33,6 @@ def retrieve_model(PATH_MODEL, PATH_LABEL):
     # label = np.load(PATH_LABEL, allow_pickle=True)
     return model, label
 
-current_path = os.getcwd()
-PATH_MODEL_ASL = os.path.join(current_path, "saved_models/my_saved_model_asl/saved_model.pb")
 
 # # print(os.getcwd())
 # PATH_MODEL_ASL = "saved_models/asl_model2.h5"
@@ -48,7 +46,7 @@ PATH_MODEL_ASL = os.path.join(current_path, "saved_models/my_saved_model_asl/sav
 # model_arabic, label_arabic = retrieve_model(PATH_MODEL_ARABIC,
 #                                             PATH_LABEL_ARABIC)
 
-def write(PATH_MODEL_ASL=PATH_MODEL_ASL):
+def write(PATH_MODEL_ASL):
 # def write(mas=model_asl,
 #               lasl=label_asl,
 #               marab=model_arabic,
