@@ -62,7 +62,7 @@ if "emoji" not in st.session_state:
 
 emojis = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻"]
 
-
+#Flashcard function
 def flashcard(model=[],label=[]):
     GS = GameState(random.randint(1, len(all_signs) - 1))
     state = persistent_game_state(initial_state=GS)
